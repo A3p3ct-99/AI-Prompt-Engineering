@@ -37,7 +37,8 @@ export default function Home() {
     setTasks([newTask, ...tasks]);
   };
 
-  const updateTask = (id: string, title: string, description: string) => {
+  const updateTask = (title: string, description: string, id?: string) => {
+    if (!id) return;
     setTasks(
       tasks.map((task) =>
         task.id === id ? { ...task, title, description } : task
